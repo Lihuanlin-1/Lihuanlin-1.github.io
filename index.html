@@ -3,37 +3,153 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Test Page | Li Huanlin</title>
+  <title>李焕林 | Li Huanlin</title>
+  <link rel="icon" href="/favicon.ico">
   <style>
     :root{
-      --bg:#fff;
-      --text:#333;
+      --bg:#ffffff;
+      --text:#222222;
       --accent:#3498db;
+      --card:#f7f7f7;
+      --border:#e5e5e5;
     }
     @media (prefers-color-scheme: dark){
-      :root{ --bg:#181a1b; --text:#e8e6e3; }
+      :root{ --bg:#181a1b; --text:#e8e6e3; --card:#1e2021; --border:#333; }
     }
+    body.dark{ --bg:#181a1b; --text:#e8e6e3; --card:#1e2021; --border:#333; }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
     body{
-      margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,"PingFang SC","Microsoft YaHei",sans-serif;
       background:var(--bg);color:var(--text);
-      display:flex;align-items:center;justify-content:center;height:100vh;
+      transition:background .3s,color .3s;
+      line-height:1.7;
     }
-    .box{text-align:center;padding:2rem;border:2px solid var(--accent);border-radius:8px;}
-    h1{margin:.5rem 0;font-size:2rem;}
-    p{margin:.5rem 0;}
-    a{color:var(--accent);}
+    header{
+      position:sticky;top:0;z-index:10;
+      background:var(--bg);border-bottom:1px solid var(--border);
+      display:flex;align-items:center;justify-content:space-between;
+      padding:.8rem 2rem;
+    }
+    nav a{margin:0 .6rem;text-decoration:none;color:var(--text);}
+    nav a:hover{color:var(--accent)}
+    .actions button{
+      background:none;border:1px solid var(--accent);color:var(--accent);
+      padding:.4rem .8rem;border-radius:4px;cursor:pointer;margin-left:.4rem;
+    }
+    .hero{text-align:center;padding:5rem 1rem 3rem}
+    .avatar{width:140px;height:140px;border-radius:50%;object-fit:cover;border:3px solid var(--accent);}
+    h1{font-size:2.2rem;margin:.6rem 0}
+    .tagline{font-size:1.1rem;color:var(--accent);}
+    .social{margin-top:1.2rem}
+    .social a{margin:0 .4rem;padding:.6rem 1.2rem;border:1px solid var(--accent);border-radius:4px;text-decoration:none;color:var(--accent);}
+    section{max-width:800px;margin:3rem auto;padding:0 1.5rem}
+    h2{margin-bottom:.8rem;display:inline-block;border-bottom:2px solid var(--accent);}
+    .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.5rem;margin-top:1rem}
+    .card{background:var(--card);padding:1.5rem;border-radius:8px}
+    .timeline{list-style:none;padding-left:1rem;border-left:3px solid var(--accent);}
+    .timeline li{margin:.7rem 0;position:relative}
+    .lang-switch{cursor:pointer}
+    footer{text-align:center;padding:2.5rem 1rem;font-size:.8rem}
+    @media print{header,footer,.actions{display:none}}
   </style>
 </head>
 <body>
-  <div class="box">
-    <h1>Hello GitHub Pages!</h1>
-    <p>仓库：<a href="https://github.com/Lihuanlin-1/Lihuanlin-1.github.io" target="_blank">Lihuanlin-1/Lihuanlin-1.github.io</a></p>
-    <p>Pages 地址：<a href="https://lihuanlin-1.github.io" target="_blank">https://lihuanlin-1.github.io</a></p>
-    <p>当前时间：<span id="t"></span></p>
+<header>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#pub">Publications</a>
+    <a href="#projects">Projects</a>
+    <a href="#cv">CV</a>
+  </nav>
+  <div class="actions">
+    <button id="lang" class="lang-switch">EN</button>
+    <button id="theme-toggle">🌗</button>
   </div>
-  <script>
-    document.getElementById('t').textContent = new Date().toLocaleString('zh-CN');
-  </script>
+</header>
+
+<main>
+  <!-- ========== About ========== -->
+  <section id="about" class="hero">
+    <img src="/avatar.jpg" alt="avatar" class="avatar">
+    <h1 data-zh="李焕林" data-en="Li Huanlin">李焕林</h1>
+    <p class="tagline" data-zh="控制科学与工程 | 人工智能与机器人" data-en="Control Science & Engineering | AI & Robotics">控制科学与工程 | 人工智能与机器人</p>
+    <div class="social">
+      <a href="https://github.com/Lihuanlin-1" target="_blank">GitHub</a>
+      <a href="mailto:huanlinli@example.com">Email</a>
+      <a href="/cv.pdf" target="_blank">CV</a>
+    </div>
+  </section>
+
+  <!-- ========== Publications ========== -->
+  <section id="pub">
+    <h2 data-zh="学术论文" data-en="Publications">学术论文</h2>
+    <ul>
+      <li data-zh="Robot Grasping in Clutter — IEEE RA-L (Under Review) 2026" data-en="Robot Grasping in Clutter — IEEE RA-L (Under Review) 2026">Robot Grasping in Clutter — IEEE RA-L (Under Review) 2026</li>
+    </ul>
+  </section>
+
+  <!-- ========== Projects ========== -->
+  <section id="projects">
+    <h2 data-zh="项目" data-en="Projects">项目</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Sim-to-Real Transfer</h3>
+        <p data-zh="基于域随机化与自适应 BN 层的零样本真机迁移。" data-en="Zero-shot real-robot transfer via domain randomization and adaptive BN.">基于域随机化与自适应 BN 层的零样本真机迁移。</p>
+      </div>
+      <div class="card">
+        <h3>Grasping in Clutter</h3>
+        <p data-zh="深度强化学习解决多物体堆叠场景下的机器人抓取。" data-en="Deep RL for robotic grasping in dense clutter.">深度强化学习解决多物体堆叠场景下的机器人抓取。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CV / Education ========== -->
+  <section id="cv">
+    <h2 data-zh="教育背景" data-en="Education">教育背景</h2>
+    <ul class="timeline">
+      <li>
+        <strong>2023 – 2026</strong>
+        <span data-zh="广东工业大学 控制科学与工程 硕士" data-en="M.S. Control Science and Engineering, Guangdong University of Technology">广东工业大学 控制科学与工程 硕士</span>
+      </li>
+      <li>
+        <strong>2019 – 2023</strong>
+        <span data-zh="广东工业大学 车辆工程 学士" data-en="B.S. Vehicle Engineering, Guangdong University of Technology">广东工业大学 车辆工程 学士</span>
+      </li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  © <span id="year"></span> <span data-zh="李焕林" data-en="Li Huanlin">李焕林</span> ·
+  <a href="https://github.com/Lihuanlin-1/Lihuanlin-1.github.io" target="_blank">Source</a>
+</footer>
+
+<script>
+// 暗色模式
+const body=document.body;
+const themeBtn=document.getElementById('theme-toggle');
+const saved=localStorage.getItem('theme');
+if(saved==='dark') body.classList.add('dark');
+themeBtn.onclick=()=>{
+  body.classList.toggle('dark');
+  localStorage.setItem('theme',body.classList.contains('dark')?'dark':'light');
+};
+
+// 中英切换
+const langBtn=document.getElementById('lang');
+let lang='zh';
+langBtn.onclick=()=>{
+  lang=lang==='zh'?'en':'zh';
+  langBtn.textContent=lang==='zh'?'EN':'中';
+  document.querySelectorAll('[data-zh][data-en]').forEach(el=>{
+    el.textContent=el.getAttribute('data-'+lang);
+  });
+};
+
+// 自动年份
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
 </body>
 </html>
