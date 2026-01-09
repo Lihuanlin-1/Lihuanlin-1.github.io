@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Test Page | Li Huanlin</title>
+  <style>
+    :root{
+      --bg:#fff;
+      --text:#333;
+      --accent:#3498db;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{ --bg:#181a1b; --text:#e8e6e3; }
+    }
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+      background:var(--bg);color:var(--text);
+      display:flex;align-items:center;justify-content:center;height:100vh;
+    }
+    .box{text-align:center;padding:2rem;border:2px solid var(--accent);border-radius:8px;}
+    h1{margin:.5rem 0;font-size:2rem;}
+    p{margin:.5rem 0;}
+    a{color:var(--accent);}
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Hello GitHub Pages!</h1>
+    <p>仓库：<a href="https://github.com/Lihuanlin-1/Lihuanlin-1.github.io" target="_blank">Lihuanlin-1/Lihuanlin-1.github.io</a></p>
+    <p>Pages 地址：<a href="https://lihuanlin-1.github.io" target="_blank">https://lihuanlin-1.github.io</a></p>
+    <p>当前时间：<span id="t"></span></p>
+  </div>
+  <script>
+    document.getElementById('t').textContent = new Date().toLocaleString('zh-CN');
+  </script>
+</body>
+</html>
